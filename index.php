@@ -1,5 +1,6 @@
 <?php
 
-    echo "hello word!";
+    echo "hello word!<br>";    
+    echo "Teste"
 
 ?>
