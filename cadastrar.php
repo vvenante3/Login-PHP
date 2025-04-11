@@ -5,7 +5,7 @@ include 'conexao.php';
 $message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name   = $_POST["nome"];
+    $nome   = $_POST["nome"];
     $email  = $_POST["email"];
     $senha  = password_hash($_POST["senha"], PASSWORD_DEFAULT); //criptografia de senha
 
