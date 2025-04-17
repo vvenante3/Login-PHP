@@ -1,6 +1,6 @@
 <?php
 
-include 'conexao.php';
+include 'conexao_Db.php';
 
 $message = '';
 
@@ -48,6 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" name="senha" required><br><br>
 
         <button type="submit">Cadastrar</button>
+
+        <h2></h2>
+
     </form>
+
 </body>
 </html>

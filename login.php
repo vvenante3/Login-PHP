@@ -1,18 +1,26 @@
-<?php
+    <?php
 
-session_start();
-include 'conexao.php';
+    session_start();
+    include 'conexao_Db.php';
 
-$usuario = $_POST['usuario'];
-$senha = $_POST['senha'];
+    $usuario = $_POST['usuario'];
+    $senha = $_POST['senha'];
 
-$sql = "SELECT * FROM usuarios WHERE nome = '$usuario' AND senha = '$senha'";
-$result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    $_SESSION['usuario'] = $usuario;
-    header('Location: index.php');
-} else {
-    echo "Usuário ou senha inválidos";
-}
-?>
+    // consulta utilizando PDO, buscando pelo nome
+    $sql = "SELECT * FROM usuarios WHERE nome = :usuario";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':usuario', $usuario);
+    $stmt->execute();
+
+    $usuarioDb = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($usuario && password_verify($senha , $usuarioDb['senha'])) {
+        $_SESSION['usuario'] = $usuario['nome'];
+        header('Location: index.php');
+        exit;
+    } else {
+        echo "Usuário ou senha indefinida";
+    }
+
+    ?>
