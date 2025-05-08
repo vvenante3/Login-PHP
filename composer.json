@@ -1,0 +1,8 @@
+{
+    "name": "vvenante3/projeto-php",
+    "description": "Projeto PHP básico",
+    "require": {
+      "php": "^8.2"
+    }
+  }
+  

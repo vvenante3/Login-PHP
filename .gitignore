@@ -1,1 +1,8 @@
+vendor/
 .env
+*.log
+*.lock
+.DS_Store
+.idea/
+.vscode/
+docker/phpDocker/tmp/

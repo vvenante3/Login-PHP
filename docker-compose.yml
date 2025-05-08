@@ -1,0 +1,15 @@
+# Neste arquivo será definido o serviço app, 
+# que será construído a partir do [ Dockerfile].
+
+# Ele vai mapear a porta 80 do container para a porta 8080 do host  
+# E depois montar o diretório atual no container.
+
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/html
